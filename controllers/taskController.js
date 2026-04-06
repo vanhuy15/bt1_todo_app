@@ -2,7 +2,6 @@ const Task = require("../models/Task");
 const TaskHistory = require("../models/TaskHistory");
 const mongoose = require("mongoose");
 
-// Xử lý Lọc, Tìm kiếm, Sắp xếp (Các câu truy vấn từ 1 đến 8)
 const getTasksAdvanced = async (req, res) => {
   try {
     const { priority, status, keyword, isOverdue, categoryName, sortBy } =

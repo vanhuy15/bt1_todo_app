@@ -8,12 +8,11 @@ const taskHistorySchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    // Lưu lại những trường nào bị thay đổi (VD: "status changed from pending to completed")
     actionDescription: { type: String, required: true },
-    previousState: { type: Object }, // Có thể lưu lại cục JSON của task trước khi sửa
+    previousState: { type: Object },
   },
   {
-    timestamps: { createdAt: true, updatedAt: false }, // Chỉ cần thời gian tạo lịch sử
+    timestamps: { createdAt: true, updatedAt: false },
   },
 );
 

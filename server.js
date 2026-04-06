@@ -6,6 +6,7 @@ const authRoutes = require("./routes/authRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const commentRoutes = require("./routes/commentRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 connectDB();
@@ -18,10 +19,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/comments", commentRoutes);
+app.use("/api/users", userRoutes);
 
-// API Test
+// API test
 app.get("/", (req, res) => {
-  res.send("API của Hệ thống To-do List đang hoạt động!");
+  res.send("deploy r, test đi cậu");
 });
 
 const PORT = process.env.PORT || 5000;

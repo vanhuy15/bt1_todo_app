@@ -4,22 +4,17 @@ const User = require("../models/User");
 const protect = async (req, res, next) => {
   let token;
 
-  // Kiểm tra xem header có chứa token theo chuẩn Bearer không
+  // kiểm tra xem header có chứa token k
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
     try {
-      // Tách lấy chuỗi token
       token = req.headers.authorization.split(" ")[1];
-
-      // Giải mã token bằng chữ ký bí mật
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-      // Tìm user trong DB và gắn vào req (loại bỏ trường password)
       req.user = await User.findById(decoded.id).select("-password");
 
-      next(); // Chuyển tiếp sang xử lý API
+      next();
     } catch (error) {
       res
         .status(401)

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongooseDelete = require("mongoose-delete"); // Thư viện hỗ trợ Soft Delete (Điểm cộng)
+const mongooseDelete = require("mongoose-delete");
 
 const taskSchema = new mongoose.Schema(
   {
@@ -17,7 +17,7 @@ const taskSchema = new mongoose.Schema(
     },
     dueDate: { type: Date, required: true },
 
-    // Các khóa ngoại (Relations)
+    // khóa ngoại
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category",

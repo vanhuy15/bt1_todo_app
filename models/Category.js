@@ -4,7 +4,6 @@ const categorySchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     description: { type: String },
-    // Liên kết Category với User tạo ra nó (để mỗi người có danh mục riêng)
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

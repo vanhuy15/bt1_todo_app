@@ -74,7 +74,7 @@ const genericCrud = (Model) => {
             .status(404)
             .json({ message: "Không tìm thấy dữ liệu để xóa" });
 
-        await doc.delete(); // Sẽ tự động thành Soft Delete nếu Model có cài mongoose-delete
+        await doc.delete(); // auto thành Soft Delete vì Model có cài mongoose-delete
         res.status(200).json({ message: "Đã xóa thành công" });
       } catch (error) {
         res

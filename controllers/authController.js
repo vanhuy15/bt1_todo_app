@@ -2,14 +2,14 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// Hàm tạo JWT Token
+// tạo JWT token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
   });
 };
 
-// Đăng ký tài khoản
+// register tài khoản
 const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -43,7 +43,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-// Đăng nhập
+// login
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
