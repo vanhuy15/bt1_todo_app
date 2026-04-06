@@ -23,7 +23,7 @@ app.use("/api/users", userRoutes);
 
 // API test
 app.get("/", (req, res) => {
-  res.send("deploy r, test đi cậu");
+  res.send("deploy r, test đi cậuuuu");
 });
 
 const PORT = process.env.PORT || 5000;
