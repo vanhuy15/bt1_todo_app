@@ -12,7 +12,7 @@ const {
   getTasksByMonth,
   getCompletedLateTasks,
   getAvgCompletionTime,
-  updateTask, // <-- Import hàm này
+  updateTask,
 } = require("../controllers/taskController");
 
 const taskCrud = genericCrud(Task);
@@ -24,10 +24,9 @@ router.get("/stats/by-month", protect, getTasksByMonth);
 router.get("/stats/late-completed", protect, getCompletedLateTasks);
 router.get("/stats/avg-time", protect, getAvgCompletionTime);
 
-// API TÌM KIẾM & LỌC CHUNG
+// API search và lọc chung
 router.route("/").get(protect, getTasksAdvanced).post(protect, taskCrud.create);
 
-// API CRUD CƠ BẢN
 router
   .route("/:id")
   .get(protect, taskCrud.getOne)

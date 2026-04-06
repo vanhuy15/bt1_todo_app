@@ -4,7 +4,7 @@ const User = require("../models/User");
 const protect = async (req, res, next) => {
   let token;
 
-  // kiểm tra xem header có chứa token k
+  // kiểm tra xem header có chứa token k, nếu k thì báo lỗi
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")

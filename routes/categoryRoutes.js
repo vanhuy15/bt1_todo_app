@@ -4,7 +4,6 @@ const Category = require("../models/Category");
 const genericCrud = require("../controllers/genericController");
 const { protect } = require("../middlewares/authMiddleware");
 
-// Khởi tạo các hàm CRUD cho Category
 const categoryController = genericCrud(Category);
 
 router

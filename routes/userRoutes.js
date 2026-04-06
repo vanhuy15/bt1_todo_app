@@ -6,7 +6,6 @@ const { protect } = require("../middlewares/authMiddleware");
 // lấy tất cả danh sách User
 router.get("/", protect, async (req, res) => {
   try {
-    // Tìm tất cả user chưa bị xóa. .select('-password') để ẩn mật khẩu đi cho bảo mật
     const users = await User.find({ deleted: false }).select("-password");
     res.status(200).json(users);
   } catch (error) {
@@ -37,7 +36,7 @@ router.put("/:id", protect, async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
       { username: req.body.username },
-      { returnDocument: "after" }, // Đã fix luôn cảnh báo Mongoose cho bạn
+      { returnDocument: "after" },
     ).select("-password");
     res.status(200).json(updatedUser);
   } catch (error) {

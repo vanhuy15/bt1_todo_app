@@ -1,11 +1,11 @@
 const genericCrud = (Model) => {
   return {
-    // [POST] Tạo mới
+    // create new
     create: async (req, res) => {
       try {
         const doc = await Model.create({
           ...req.body,
-          createdBy: req.user._id, // Tự động gán người tạo là user đang đăng nhập
+          createdBy: req.user._id, // auto gán người tạo là user đang đăng nhập
         });
         res.status(201).json(doc);
       } catch (error) {
@@ -15,7 +15,7 @@ const genericCrud = (Model) => {
       }
     },
 
-    // [GET] Lấy tất cả dữ liệu (của user đang đăng nhập)
+    // lấy tất cả dữ liệu (đối với user đang đăng nhập)
     getAll: async (req, res) => {
       try {
         const docs = await Model.find({ createdBy: req.user._id });
@@ -27,7 +27,7 @@ const genericCrud = (Model) => {
       }
     },
 
-    // [GET] Lấy 1 bản ghi theo ID
+    // lấy 1 bản ghi theo ID
     getOne: async (req, res) => {
       try {
         const doc = await Model.findOne({
@@ -44,7 +44,7 @@ const genericCrud = (Model) => {
       }
     },
 
-    // [PUT] Cập nhật
+    // update
     update: async (req, res) => {
       try {
         const doc = await Model.findOneAndUpdate(
@@ -62,7 +62,7 @@ const genericCrud = (Model) => {
       }
     },
 
-    // [DELETE] Xóa
+    // baibai
     delete: async (req, res) => {
       try {
         const doc = await Model.findOne({
@@ -74,7 +74,7 @@ const genericCrud = (Model) => {
             .status(404)
             .json({ message: "Không tìm thấy dữ liệu để xóa" });
 
-        await doc.delete(); // auto thành Soft Delete vì Model có cài mongoose-delete
+        await doc.delete();
         res.status(200).json({ message: "Đã xóa thành công" });
       } catch (error) {
         res

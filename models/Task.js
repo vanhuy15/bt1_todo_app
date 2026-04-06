@@ -34,7 +34,6 @@ const taskSchema = new mongoose.Schema(
   },
 );
 
-// Tích hợp Soft Delete: Sẽ thêm trường 'deleted' (boolean) và 'deletedAt' thay vì xóa thật khỏi DB
 taskSchema.plugin(mongooseDelete, { overrideMethods: "all", deletedAt: true });
 
 module.exports = mongoose.model("Task", taskSchema);

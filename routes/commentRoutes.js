@@ -4,7 +4,6 @@ const Comment = require("../models/Comment");
 const genericCrud = require("../controllers/genericController");
 const { protect } = require("../middlewares/authMiddleware");
 
-// Khởi tạo bộ hàm CRUD cho Comment
 const commentController = genericCrud(Comment);
 
 router

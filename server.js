@@ -21,7 +21,7 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/users", userRoutes);
 
-// API test
+// api test
 app.get("/", (req, res) => {
   res.send("deploy r, test đi cậuuuu!!");
 });

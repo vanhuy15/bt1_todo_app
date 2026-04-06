@@ -152,10 +152,10 @@ const getAvgCompletionTime = async (req, res) => {
   }
 };
 
-// [MỚI] Hàm cập nhật Task viết tay để đảm bảo ghi được lịch sử
+// hàm cập nhật Task
 const updateTask = async (req, res) => {
   try {
-    // Tìm task cũ để lấy dữ liệu trước khi sửa
+    // tìm task cũ để lấy dữ liệu trước khi sửa
     const task = await Task.findOne({
       _id: req.params.id,
       createdBy: req.user._id,
@@ -164,7 +164,7 @@ const updateTask = async (req, res) => {
 
     const previousState = task.toObject();
 
-    // Cập nhật task mới
+    // update task mới
     const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
