@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // tạo JWT token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: "30d",
+    expiresIn: "1h",
   });
 };
 
@@ -31,10 +31,7 @@ const registerUser = async (req, res) => {
 
     if (user) {
       res.status(201).json({
-        _id: user.id,
-        username: user.username,
-        email: user.email,
-        token: generateToken(user._id),
+        message: "Đăng ký thành công",
       });
     } else {
       res.status(400).json({ message: "Dữ liệu người dùng không hợp lệ" });
